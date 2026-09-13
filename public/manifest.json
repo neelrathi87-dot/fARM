@@ -1,0 +1,17 @@
+{
+  "name": "FarmPulse - Precision Farm Operations & Intelligence",
+  "short_name": "FarmPulse",
+  "description": "Real-time farm operations, plot calendar, irrigation and pesticide intelligence",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#F8FAF9",
+  "theme_color": "#16a34a",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
