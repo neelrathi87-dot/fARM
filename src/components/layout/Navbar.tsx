@@ -11,6 +11,7 @@ import {
   Calendar,
   Smartphone,
   Download,
+  Map,
 } from "lucide-react";
 import { useFarmStore } from "@/lib/store/farmStore";
 import { Button } from "@/components/ui/Button";
@@ -24,6 +25,7 @@ export const Navbar: React.FC = () => {
   const navItems = [
     { name: "Overview", href: "/", icon: LayoutDashboard },
     { name: "Plot Hub & Calendar", href: "/fields", icon: Calendar },
+    { name: "Maps", href: "/map", icon: Map },
   ];
 
   return (
