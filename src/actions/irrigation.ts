@@ -23,8 +23,8 @@ export async function getWaterLogs(fieldId?: string) {
       },
     });
   } catch (error) {
-    console.error("Error fetching water logs:", error);
-    throw new Error("Failed to fetch water logs");
+    console.warn("Notice: Unable to fetch water logs:", error);
+    return [];
   }
 }
 
@@ -74,8 +74,19 @@ export async function getIrrigationStats(fieldId?: string) {
       deliveryBreakdown,
     };
   } catch (error) {
-    console.error("Error calculating irrigation stats:", error);
-    throw new Error("Failed to calculate irrigation stats");
+    console.warn("Notice: Unable to calculate irrigation stats:", error);
+    return {
+      totalLiters: 0,
+      normalWaterLiters: 0,
+      liquidWaterLiters: 0,
+      totalHours: 0,
+      logCount: 0,
+      deliveryBreakdown: {
+        DRIP: 0,
+        SPRINKLER: 0,
+        FLOOD: 0,
+      },
+    };
   }
 }
 

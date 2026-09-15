@@ -40,8 +40,8 @@ export async function getFields() {
       };
     });
   } catch (error) {
-    console.error("Error fetching fields:", error);
-    throw new Error("Failed to fetch fields");
+    console.warn("Notice: Unable to fetch fields (database may be offline or migrating). Returning empty list.", error);
+    return [];
   }
 }
 
@@ -62,8 +62,8 @@ export async function getFieldById(id: string) {
       },
     });
   } catch (error) {
-    console.error("Error fetching field by id:", error);
-    throw new Error("Failed to fetch field");
+    console.warn("Notice: Unable to fetch field by id:", error);
+    return null;
   }
 }
 
@@ -94,8 +94,8 @@ export async function getFieldsWithFullHistory() {
       };
     });
   } catch (error) {
-    console.error("Error fetching fields with full history:", error);
-    throw new Error("Failed to fetch fields with full history");
+    console.warn("Notice: Unable to fetch fields with full history:", error);
+    return [];
   }
 }
 

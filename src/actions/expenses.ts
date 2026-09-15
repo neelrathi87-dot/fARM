@@ -25,8 +25,8 @@ export async function getExpenses(fieldId?: string) {
       },
     });
   } catch (error) {
-    console.error("Error fetching expenses:", error);
-    throw new Error("Failed to fetch expenses");
+    console.warn("Notice: Unable to fetch expenses:", error);
+    return [];
   }
 }
 
@@ -110,8 +110,23 @@ export async function getExpenseAnalytics(fieldId?: string) {
       count: expenses.length,
     };
   } catch (error) {
-    console.error("Error computing expense analytics:", error);
-    throw new Error("Failed to compute expense analytics");
+    console.warn("Notice: Unable to compute expense analytics:", error);
+    return {
+      totalAmount: 0,
+      currentMonthSpend: 0,
+      projectedMonthlyBurn: 0,
+      dailyAverageBurnRate: 0,
+      categoryTotals: {
+        LABOUR: 0,
+        PESTICIDES: 0,
+        FUEL: 0,
+        MAINTENANCE: 0,
+        OTHER: 0,
+      },
+      fieldTotals: [],
+      recentDailyExpenses: [],
+      count: 0,
+    };
   }
 }
 
